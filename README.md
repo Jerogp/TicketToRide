@@ -1,3 +1,5 @@
+![image](https://github.com/user-attachments/assets/9c6acc13-c12f-4d56-b3c6-41804702c43b)
+
 # TicketToRide
 
 ## Contenido
