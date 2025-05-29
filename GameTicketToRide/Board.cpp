@@ -122,13 +122,7 @@ void Tablero::display() const {
         }
         std::cout << RESET << std::endl;
     }
-    std::cout << "\nCOLOR DE LAS VIAS: ";
-    // Muestra la leyenda de colores de las vías
-    for(const auto& par : COLORES_ANSI){
-        if(par.first != "Ninguno" && par.second != BG_WHITE) {
-            std::cout << par.second << " " << par.first << " " << RESET << " ";
-        }
-    }
+
     std::cout << "\n" << std::endl;
 }
 
