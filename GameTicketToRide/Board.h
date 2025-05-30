@@ -4,16 +4,15 @@
 #include <vector>
 #include <string>
 #include <map>
-
 #include "Constants.h"
 #include "Structs.h"
+using namespace std;
 
-// Clase Tablero
 class Tablero {
 public:
     Celda board[FILAS][COLUMNAS];
-    std::vector<Ruta> rutas;
-    std::map<std::string, Ciudad> ciudades;
+    vector<Ruta> rutas;
+    map<std::string, Ciudad> ciudades;
 
     Tablero(); // Constructor
 
@@ -27,5 +26,5 @@ public:
     Ruta* getRutaPorId(int id); // Obtiene un puntero a una ruta por su ID
 };
 
-#endif // BOARD_H
+#endif
 
