@@ -12,7 +12,7 @@ class Tablero {
 public:
     Celda board[FILAS][COLUMNAS];
     vector<Ruta> rutas;
-    map<std::string, Ciudad> ciudades;
+    map<string, Ciudad> ciudades;
 
     Tablero(); // Constructor
 
