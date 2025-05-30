@@ -1,8 +1,8 @@
 #include "Board.h"
 #include <iostream>
 #include <iomanip>
+using namespace std;
 
-// Constructor
 Tablero::Tablero() {
     inicializarTableroBase();
     inicializarCiudadesYRutas();
@@ -97,56 +97,52 @@ void Tablero::actualizarGraficoRutaReclamada(int rutaId) {
 
 // Imprime una sola celda del tablero
 void Tablero::imprimirCelda(const Celda& celda) const {
-    std::cout << celda.color;
+    cout << celda.color;
     if (celda.letra != ' ') {
-        std::cout << TEXT_BLACK << TEXT_BOLD << " " << celda.letra << " ";
+        cout << TEXT_BLACK << TEXT_BOLD << " " << celda.letra << " ";
     } else {
-        std::cout << "   ";
+        cout << "   ";
     }
-    std::cout << RESET;
+    cout << RESET;
 }
 
 // Muestra el tablero completo
 void Tablero::display() const {
-    std::cout << "\n--- MAPA DEL TABLERO ---\n";
-    std::cout << "    "; // Espacio para la columna de números de fila
+    cout << "\n--- MAPA DEL TABLERO ---\n";
+    cout << "    "; // Espacio para la columna de números de fila
     for (int j = 1; j < COLUMNAS; ++j) {
-        std::cout << std::setw(3) << j; // Números de columna
+        cout << setw(3) << j; // Números de columna
     }
-    std::cout << "\n";
+    cout << "\n";
 
     for (int i = 1; i < FILAS; ++i) {
-        std::cout << std::setw(3) << i << " "; // Números de fila
+        cout << setw(3) << i << " "; // Números de fila
         for (int j = 1; j < COLUMNAS; ++j) {
             imprimirCelda(board[i][j]); // Imprime cada celda
         }
-        std::cout << RESET << std::endl;
+        cout << RESET << endl;
     }
-
-    std::cout << "\n" << std::endl;
 }
 
 // Muestra todas las rutas disponibles para reclamar
 void Tablero::mostrarRutasDisponibles() const {
-    std::cout << "--- RUTAS DISPONIBLES ---\n";
+    cout << "--- RUTAS DISPONIBLES ---\n";
     bool hayDisponibles = false;
     for (const auto& ruta : rutas) {
-        if (ruta.propietarioId == -1) { // Si la ruta no ha sido reclamada
+        if (ruta.propietarioId == -1) {
             ruta.mostrar();
             hayDisponibles = true;
         }
     }
     if (!hayDisponibles) {
-        std::cout << "No hay más rutas disponibles para reclamar.\n";
+        cout << "No hay más rutas disponibles para reclamar.\n";
     }
-    std::cout << "-------------------------\n";
+    cout << "-------------------------\n";
 }
 
-// Obtiene un puntero a una ruta por su ID
 Ruta* Tablero::getRutaPorId(int id) {
     for (auto& ruta : rutas) {
         if (ruta.id == id) return &ruta;
     }
-    return nullptr; // Retorna nullptr si no se encuentra la ruta
+    return nullptr; 
 }
-
