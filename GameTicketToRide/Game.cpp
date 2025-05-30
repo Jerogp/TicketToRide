@@ -23,8 +23,6 @@ void JuegoDeTrenes::iniciarJuego() {
     for (auto& jugador : jugadores) {
         for (int i = 0; i < 4; ++i) {
             if (mazoPrincipal.tieneCartasDisponibles()) {
-                try { jugador.tomarCarta(mazoPrincipal.robarCarta()); }
-                catch (const runtime_error& e) { break; } // Si el mazo se vacía, detiene el reparto
             } else { break; }
         }
     }
